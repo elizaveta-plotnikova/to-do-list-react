@@ -5,8 +5,9 @@ class Task extends Component {
 
     render () {
         return (
-            <li className={'task-text'}>{this.props.text}
-                <button className={'delete-btn'} onClick={this.props.onDelete}>Delete</button>
+            <li className={'task'}>
+                <div className={'task-text'}>{this.props.text}</div>
+                <button className={'task-delete-btn'} onClick={this.props.onDelete}>Delete</button>
             </li>
         )
     }

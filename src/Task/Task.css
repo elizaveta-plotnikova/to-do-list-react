@@ -1,14 +1,22 @@
-.task-text {
+.task {
     list-style: none;
-    float: left;
-    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
-.delete-btn {
-    margin-left: 30px;
+.task-text {
+    width: 88%;
+    text-align: start;
+    color: #595959;
+}
+
+.task-delete-btn {
+    width: 10%;
     padding: 5px 10px;
     color: white;
-    background-color: #f98a8a;
+    background-color: #f26464;
     border: none;
-    border-radius: 2px;
+    border-radius: 3px;
 }

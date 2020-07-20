@@ -60,16 +60,17 @@ deleteHandler = (i) => {
 
           <div>
 
-            <input 
-              ref={this.inputRef}
-              className='input' 
-              type='text' 
-              placeholder='New task'
-              value={this.state.inputText} 
-              onChange={this.handleInput}>
-            </input>
-
-            <button className='btn' onClick={this.addTask}>Create task</button>
+            <div className={'conteiner'}>
+              <input 
+                ref={this.inputRef}
+                className='input' 
+                type='text' 
+                placeholder='New task'
+                value={this.state.inputText} 
+                onChange={this.handleInput}>
+              </input>
+              <button className='btn' onClick={this.addTask}>Create task</button>
+            </div>
 
             { this.state.inputError
                 ? <ul className={'input-err'}>
@@ -78,7 +79,7 @@ deleteHandler = (i) => {
                 :  null
             }
 
-            <ul className={'task-conteiner'}>
+            <ul className={'tasks'}>
               {this.state.tasks.map((el, i) => {
                 return (
                   <Task 

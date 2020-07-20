@@ -11,21 +11,25 @@ h1 {
     color: #666666;
 }
 
+.conteiner {
+    display: flex;
+    justify-content: space-between;
+}
+
 .input {
-    width: 450px;
+    width: 70%;
     height: 40px;
     background-color: #ededed;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 0 15px;
 }
 
 .btn {
-    width: 200px;
+    width: 25%;
     height: 40px;
-    margin-left: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     color: white;
     background-color: teal;
 }
@@ -38,7 +42,9 @@ h1 {
     padding: 10px 0;
 }
 
-.task-conteiner {
+.tasks {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
 }
