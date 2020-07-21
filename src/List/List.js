@@ -10,48 +10,53 @@ class List extends Component {
     inputError: false
   }
 
-inputRef = (domInput) => {
-  this.domInput = domInput;
-}
-
-handleInput = (event) => {
-  this.setState({
-    inputText: event.target.value
-  })
-}
-
-addTask = () => {
-  const { tasks, inputText } = this.state;
-
-  if (inputText.length < 4) {
-    this.setState({
-      inputError: true
-    })
-    return (
-      <ul className={'input-err'} errorHandler={this.errorHandler}>
-        <li>Слишком короткое задание</li>
-      </ul>
-    )
-  } else {
-    this.setState({
-      tasks: [...tasks, {text: inputText}],
-      inputText: '',
-      inputError: false
-    }); 
+  inputRef = (domInput) => {
+    this.domInput = domInput;
   }
-  
-  this.domInput.focus();
-}
 
-deleteHandler = (i) => {
-  const array = this.state.tasks.concat();
-  array.splice(i, 1); 
-  this.setState({
-    tasks: array
-  })
-}
+  handleInput = (event) => {
+    this.setState({
+      inputText: event.target.value
+    })
+  }
+
+  addTask = () => {
+    const { tasks, inputText } = this.state;
+
+    if (inputText.length < 4) {
+      this.setState({
+        inputError: true
+      })
+      return (
+        <ul className={'input-err'} errorHandler={this.errorHandler}>
+          <li>Слишком короткое задание</li>
+        </ul>
+      )
+    } else {
+      this.setState({
+        tasks: [...tasks, {text: inputText}],
+        inputText: '',
+        inputError: false
+      }); 
+    }
+    this.domInput.focus();
+  }
+
+  deleteHandler = (i) => {
+    const array = this.state.tasks.concat();
+    array.splice(i, 1); 
+    this.setState({
+      tasks: array
+    })
+  }
+
+  backToHome = () => {
+    this.props.history.push('/calendar');
+  }
 
   render() {
+
+    console.log(this.props.match);
 
     return (
       <div className='wrapper'>
@@ -83,13 +88,14 @@ deleteHandler = (i) => {
               {this.state.tasks.map((el, i) => {
                 return (
                   <Task 
+                    id={i}
                     key={i} 
                     text={el.text}
                     onDelete={this.deleteHandler.bind(this, i)}
                   />)
               })}
             </ul>
-
+            <button onClick={this.backToHome}>Home</button>  
           </div>
       </div>
     )
